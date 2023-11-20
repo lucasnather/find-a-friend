@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  findafriend:
+    image: 'bitnami/postgresql'
+    ports:
+      - '5432'
+    environment:
+      - POSTGRESQL_USERNAME=pets
+      - POSTGRESQL_PASSWORD=pets
+      - POSTGRESQL_DATABASE=findafriend

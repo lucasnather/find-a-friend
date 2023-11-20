@@ -10,9 +10,6 @@ const envSchema = z.object({
 
 const _env = envSchema.safeParse(process.env)
 
-if (!_env.success) {
-
-	throw new Error('Erro na variável de ambiente')
-}
+if (!_env.success) throw new Error('Erro na variável de ambiente')
 
 export const env = _env.data

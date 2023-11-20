@@ -11,7 +11,6 @@ const envSchema = z.object({
 const _env = envSchema.safeParse(process.env)
 
 if (!_env.success) {
-	console.error('Erro na variável de ambiente', _env.error.format())
 
 	throw new Error('Erro na variável de ambiente')
 }

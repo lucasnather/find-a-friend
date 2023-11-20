@@ -5,7 +5,7 @@ services:
     image: 'bitnami/postgresql'
     ports:
       - 5432:5432
-    env:
-      POSTGRESQL_USERNAME: pets
-      POSTGRESQL_PASSWORD: pets
-      POSTGRESQL_DATABASE: findafriend
+    environment:
+      - POSTGRESQL_USERNAME=pets
+      - POSTGRESQL_PASSWORD=pets
+      - POSTGRESQL_DATABASE=findafriend

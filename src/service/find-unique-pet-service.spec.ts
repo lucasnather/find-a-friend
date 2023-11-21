@@ -2,7 +2,7 @@ import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory
 import { beforeAll, it, expect, describe } from 'vitest'
 import { FindUniquePetsService } from './find-unique-pet-service'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
-import { RecursoNaoEncontradoError } from '@/error/recurso-nao-encontrado-error'
+import { ResourceNotFoundError } from '@/error/resource-not-found-error'
 
 let petsRepository: InMemoryPetRepository
 let orgRepository: InMemoryOrgRepository
@@ -77,7 +77,7 @@ describe('Find Unique Pet Service', () => {
 			await sut.execute({
 				id: 'not exists id'
 			})
-		}).rejects.toBeInstanceOf(RecursoNaoEncontradoError)
+		}).rejects.toBeInstanceOf(ResourceNotFoundError)
 
 	})
 })

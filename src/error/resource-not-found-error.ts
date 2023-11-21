@@ -1,4 +1,4 @@
-export class RecursoNaoEncontradoError extends Error {
+export class ResourceNotFoundError extends Error {
 	constructor() {
 		super('Recurso Não Encontrado Error')
 	}

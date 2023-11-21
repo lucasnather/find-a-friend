@@ -1,4 +1,4 @@
-import { FotoNaoEncotradaError } from '@/error/foto-nao-encontrada-error'
+import { PhotoNotFoundError } from '@/error/photo-not-found-error-error'
 import { IFotos } from '@/interface/IFotos'
 import { Foto } from '@prisma/client'
 
@@ -17,7 +17,7 @@ export class FindManyFotosService {
 	async execute(data: FindManyFotosServiceRequest): Promise<FindManyFotosServiceResponse> {
 		const foto = await this.fotosrepository.findByIdPet(data.petId)
 
-		if (foto?.length === 0 || !foto) throw new FotoNaoEncotradaError()
+		if (foto?.length === 0 || !foto) throw new PhotoNotFoundError()
 
 		return {
 			foto

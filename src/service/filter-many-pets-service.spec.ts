@@ -2,7 +2,7 @@ import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory
 import { beforeAll, it, expect, describe } from 'vitest'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
 import { FilterManyPetsService } from './filter-many-pets-service'
-import { PetsSemCaracteristicasError } from '@/error/pets-sem-caracteristicas-error'
+import { PetWithoutAnyCharactersError } from '@/error/pet-without-any-characters-error'
 
 let petsRepository: InMemoryPetRepository
 let orgRepository: InMemoryOrgRepository
@@ -81,7 +81,7 @@ describe('Filter Many Pet Service', () => {
 				ambiente: 'PEQUENO',
 				idade: 'FILHOTE'
 			})
-		}).rejects.toBeInstanceOf(PetsSemCaracteristicasError)
+		}).rejects.toBeInstanceOf(PetWithoutAnyCharactersError)
 
 	})
 

@@ -3,7 +3,7 @@ import { beforeAll, it, expect, describe } from 'vitest'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
 import { FindManyFotosService } from './find-many-fotos-service'
 import { InMemoryFotoRepository } from '@/repository/in-memory-database/in-memory-foto-repository'
-import { FotoNaoEncotradaError } from '@/error/foto-nao-encontrada-error'
+import { PhotoNotFoundError } from '@/error/photo-not-found-error-error'
 
 let fotosRepository: InMemoryFotoRepository
 let petRepository: InMemoryPetRepository
@@ -91,6 +91,6 @@ describe('Find Many Fotos Pet Service', () => {
 			await sut.execute({
 				petId: 'outro-pet-id'
 			})
-		}).rejects.toBeInstanceOf(FotoNaoEncotradaError)
+		}).rejects.toBeInstanceOf(PhotoNotFoundError)
 	})
 })

@@ -7,7 +7,7 @@ import { env } from './env/env'
 import { ZodError } from 'zod'
 import { orgRoutes } from './routes/org-routes'
 import { petsRoutes } from './routes/pets-routes'
-import { fotosRoutes } from './routes/fotos-routes'
+import { photosRoutes } from './routes/fotos-routes'
 
 export const app = fastify()
 
@@ -36,7 +36,7 @@ app.register(petsRoutes, {
 	prefix: '/pet'
 })
 
-app.register(fotosRoutes, {
+app.register(photosRoutes, {
 	prefix: '/upload'
 })
 

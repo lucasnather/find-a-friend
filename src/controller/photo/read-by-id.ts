@@ -1,4 +1,4 @@
-import { FotoNaoEncotradaError } from '@/error/foto-nao-encontrada-error'
+import { PhotoNotFoundError } from '@/error/photo-not-found-error-error'
 import { makeFindFoto } from '@/factory/make-find-id-foto'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
@@ -19,7 +19,7 @@ export async function readById(request: FastifyRequest, reply: FastifyReply) {
 
 		return reply.status(200).send(foto)
 	} catch (error) {
-		if (error instanceof FotoNaoEncotradaError) {
+		if (error instanceof PhotoNotFoundError) {
 			return reply.status(404).send({
 				message: error.message
 			})

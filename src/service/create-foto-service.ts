@@ -1,4 +1,4 @@
-import { PetNotExistsWithIdError } from '@/error/pet-nao-existe--id-error'
+import { PetNotExistsWithIdError } from '@/error/pet-not-exists-with-id-error'
 import { IFotos } from '@/interface/IFotos'
 import { IPet } from '@/interface/IPets'
 import { Foto } from '@prisma/client'

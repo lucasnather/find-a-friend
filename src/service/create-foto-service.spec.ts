@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, it } from 'vitest'
 import { CreateFotoService } from './create-foto-service'
 import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory-pet-repository'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
-import { PetNotExistsWithIdError } from '@/error/pet-nao-existe--id-error'
+import { PetNotExistsWithIdError } from '@/error/pet-not-exists-with-id-error'
 
 let fotoRepository: InMemoryFotoRepository
 let orgRepository: InMemoryOrgRepository

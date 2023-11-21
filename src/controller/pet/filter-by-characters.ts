@@ -1,4 +1,4 @@
-import { PetsSemCaracteristicasError } from '@/error/pets-sem-caracteristicas-error'
+import { PetWithoutAnyCharactersError } from '@/error/pet-without-any-characters-error'
 import { makeFilterPet } from '@/factory/make-filter-pets'
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
@@ -29,7 +29,7 @@ export async function filterByCharacter(request: FastifyRequest, reply: FastifyR
 
 		return reply.status(200).send(pet)
 	} catch (e) {
-		if (e instanceof PetsSemCaracteristicasError) {
+		if (e instanceof PetWithoutAnyCharactersError) {
 			return reply.status(404).send({
 				message: e.message
 			})

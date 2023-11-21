@@ -1,4 +1,4 @@
-import { PetNotExistsWithIdError } from '@/error/pet-nao-existe--id-error'
+import { PetNotExistsWithIdError } from '@/error/pet-not-exists-with-id-error'
 import { makeCreateFoto } from '@/factory/make-create-foto'
 import { MulterRequest } from '@/interface/IMulter-request'
 import { FastifyReply } from 'fastify'

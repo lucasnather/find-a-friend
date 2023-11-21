@@ -1,4 +1,4 @@
-import { CidadeNaoExistePetCadastradoError } from '@/error/cidade-nao-existe-cadstrada-error'
+import { CityNotRegisterError } from '@/error/city-not-register-error'
 import { makeSearchPet } from '@/factory/make-search-pets'
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
@@ -19,7 +19,7 @@ export async function readByCity(request: FastifyRequest, reply: FastifyReply) {
 
 		return reply.status(200).send(pet)
 	} catch (e) {
-		if (e instanceof CidadeNaoExistePetCadastradoError) {
+		if (e instanceof CityNotRegisterError) {
 			return reply.status(404).send({
 				message: e.message
 			})

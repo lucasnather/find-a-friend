@@ -1,4 +1,4 @@
-export class FotoNaoEncotradaError extends Error {
+export class PhotoNotFoundError extends Error {
 	constructor() {
 		super('Foto não encontrada')
 	}

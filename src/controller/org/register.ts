@@ -1,6 +1,6 @@
 import { OrgAlreadyExistsError } from '@/error/org-already-exists-error'
 import { makeCreateOrg } from '@/factory/make-create-org'
-import { PassowordHash } from '@/utils/password-hash'
+import { PasswordHash } from '@/utils/password-hash'
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 
@@ -17,8 +17,8 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
 
 	const { nome, email, cep, endereco, telefone, senha } = getBodySchema.parse(request.body)
 
-	const passwordHash = new PassowordHash()
-	const hash = await passwordHash.hashMyPassword(senha)
+	const passwordHash = new PasswordHash()
+	const hash = await passwordHash.hashPassword(senha)
 
 	const createOrgService = makeCreateOrg()
 

@@ -2,7 +2,7 @@ import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory
 import { beforeAll, it, expect, describe } from 'vitest'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
 import { SearchManyPetsService } from './search-many-pets-service'
-import { CidadeNaoExistePetCadastradoError } from '@/error/cidade-nao-existe-cadstrada-error'
+import { CityNotRegisterError } from '@/error/city-not-register-error'
 
 let petsRepository: InMemoryPetRepository
 let orgRepository: InMemoryOrgRepository
@@ -80,7 +80,7 @@ describe('Search Many Pet Service', () => {
 			await sut.execute({
 				cidade: 'not exists city'
 			})
-		}).rejects.toBeInstanceOf(CidadeNaoExistePetCadastradoError)
+		}).rejects.toBeInstanceOf(CityNotRegisterError)
 
 	})
 })

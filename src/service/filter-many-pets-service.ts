@@ -1,4 +1,5 @@
-import { PetsSemCaracteristicasError } from '@/error/pets-sem-caracteristicas-error'
+
+import { PetWithoutAnyCharactersError } from '@/error/pet-without-any-characters-error'
 import { IPet } from '@/interface/IPets'
 import { Pet } from '@prisma/client'
 
@@ -22,7 +23,7 @@ export class FilterManyPetsService {
 	async execute(data: FilterManyPetsServiceRequest): Promise<FilterManyPetsServiceResponse> {
 		const pet = await this.petsRepository.filterPetsByCharacter(data)
 
-		if (pet?.length === 0 || !pet) throw new PetsSemCaracteristicasError()
+		if (pet?.length === 0 || !pet) throw new PetWithoutAnyCharactersError()
 
 		return {
 			pet

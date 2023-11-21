@@ -29,5 +29,7 @@ jobs:
 
       - run: npm run test:e2e
         env:
-          JWT_SECRET: testing
+          SECRET: testing
           DATABASE_URL: "postgresql://pets:pets@localhost:5432/findafriend?schema=public"
+          NODE_ENV: dev
+          PORT: 8000

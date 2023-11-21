@@ -3,7 +3,7 @@ import { afterAll, beforeAll, describe, it } from 'vitest'
 import request from 'supertest'
 import path from 'node:path'
 
-const filePath = path.resolve(__dirname, '../../../tmp/upload', '4baecc6983d4ffe910b50a4d034831f6-WhatsApp Image 2023-11-16 at 16.35.56.jpeg')
+const filePath = path.resolve(__dirname, '../../../tmp/upload', '64038bef361ff3ad91020e562183f44b-WhatsApp Image 2023-11-16 at 16.35.56.jpeg')
 
 describe('Register Foto', () => {
 	beforeAll(async () => {

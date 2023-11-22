@@ -1,6 +1,5 @@
 import { app } from '@/app'
 import request from 'supertest'
-import { afterAll, beforeAll, describe, it } from 'vitest'
 
 describe('Filter by characters Pet', () => {
 	beforeAll(async () => {

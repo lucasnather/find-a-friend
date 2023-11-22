@@ -5,5 +5,6 @@ export default defineConfig({
 	plugins: [tsconfigPaths()],
 	test: {
 		environmentMatchGlobs: [['src/controller/**', 'prisma']],
+		globals: true
 	}
 })

@@ -1,5 +1,4 @@
 import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory-pet-repository'
-import { beforeAll, expect, it, describe } from 'vitest'
 import { CreatePetService } from './create-pet-service'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
 import { OrgNotExistsError } from '@/error/org-not-exists-error'

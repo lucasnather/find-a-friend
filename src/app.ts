@@ -7,7 +7,7 @@ import { env } from './env/env'
 import { ZodError } from 'zod'
 import { orgRoutes } from './routes/org-routes'
 import { petsRoutes } from './routes/pets-routes'
-import { photosRoutes } from './routes/fotos-routes'
+import { photosRoutes } from './routes/photos-routes'
 
 export const app = fastify()
 

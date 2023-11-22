@@ -1,5 +1,4 @@
 import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory-pet-repository'
-import { beforeAll, it, expect, describe } from 'vitest'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
 import { SearchManyPetsService } from './search-many-pets-service'
 import { CityNotRegisterError } from '@/error/city-not-register-error'

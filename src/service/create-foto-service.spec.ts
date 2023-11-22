@@ -1,5 +1,4 @@
-import { InMemoryFotoRepository } from '@/repository/in-memory-database/in-memory-foto-repository'
-import { beforeAll, describe, expect, it } from 'vitest'
+import { InMemoryFotoRepository } from '@/repository/in-memory-database/in-memory-photo-repository'
 import { CreateFotoService } from './create-foto-service'
 import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory-pet-repository'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'

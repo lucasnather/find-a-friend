@@ -1,5 +1,4 @@
 import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory-pet-repository'
-import { beforeAll, it, expect, describe } from 'vitest'
 import { FindUniquePetsService } from './find-unique-pet-service'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
 import { ResourceNotFoundError } from '@/error/resource-not-found-error'

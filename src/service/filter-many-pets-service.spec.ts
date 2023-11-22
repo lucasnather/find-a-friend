@@ -1,5 +1,4 @@
 import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory-pet-repository'
-import { beforeAll, it, expect, describe } from 'vitest'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
 import { FilterManyPetsService } from './filter-many-pets-service'
 import { PetWithoutAnyCharactersError } from '@/error/pet-without-any-characters-error'

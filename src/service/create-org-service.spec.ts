@@ -1,5 +1,4 @@
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
-import { describe, it, beforeAll, expect } from 'vitest'
 import { CreateOrgService } from './create-org-service'
 import { OrgAlreadyExistsError } from '@/error/org-already-exists-error'
 

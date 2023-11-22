@@ -1,5 +1,4 @@
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
-import { beforeAll, expect, it, describe } from 'vitest'
 import { AuthenticateOrgService } from './authenticate-org-service'
 import { InvalidCredentialsError } from '@/error/invalid-credentials-error'
 

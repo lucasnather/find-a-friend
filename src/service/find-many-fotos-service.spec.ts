@@ -1,8 +1,7 @@
 import { InMemoryPetRepository } from '@/repository/in-memory-database/in-memory-pet-repository'
-import { beforeAll, it, expect, describe } from 'vitest'
 import { InMemoryOrgRepository } from '@/repository/in-memory-database/in-memory-org-repository'
 import { FindManyFotosService } from './find-many-fotos-service'
-import { InMemoryFotoRepository } from '@/repository/in-memory-database/in-memory-foto-repository'
+import { InMemoryFotoRepository } from '@/repository/in-memory-database/in-memory-photo-repository'
 import { PhotoNotFoundError } from '@/error/photo-not-found-error-error'
 
 let fotosRepository: InMemoryFotoRepository

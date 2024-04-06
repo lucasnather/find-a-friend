@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Orgs {
+  id        String   @id @default(uuid())
+  charge    String
+  email     String
+  cep       String
+  address   String
+  whatsapp  String
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  Pets      Pets[]
+
+  @@unique([email, cep])
+  @@map("orgs")
+}
+
+model Pets {
+  id           Int      @id @default(autoincrement())
+  name         String
+  about        String
+  age          Int
+  size         String
+  energy       String
+  independence String
+  ambience     String
+  orgsId       String   @map("orgs_id")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  org                  Orgs                   @relation(fields: [orgsId], references: [id])
+  Photos               Photos[]
+  AdoptionRequirements AdoptionRequirements[]
+
+  @@map("pets")
+}
+
+model Photos {
+  id        Int      @id @default(autoincrement())
+  photo     String
+  petsId    Int      @map("pets_id")
+  pet       Pets     @relation(fields: [petsId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("photos")
+}
+
+model AdoptionRequirements {
+  id          Int      @id @default(autoincrement())
+  requirement String
+  petsId      Int      @map("pets_id")
+  pet         Pets     @relation(fields: [petsId], references: [id])
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("adoption_requirements")
+}

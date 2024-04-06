@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "dev": "tsx watch --env-file .env src/server.ts"
+    "dev": "tsx watch --env-file .env src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
     "@fastify/jwt": "8.0.0",
     "@fastify/swagger": "8.14.0",
     "@fastify/swagger-ui": "3.0.0",
+    "@prisma/client": "5.12.1",
     "fastify": "4.26.2",
     "fastify-type-provider-zod": "1.1.9",
     "zod": "3.22.4"

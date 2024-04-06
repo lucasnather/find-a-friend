@@ -11,6 +11,8 @@ export async function registerOrg(app: FastifyInstance) {
         .withTypeProvider<ZodTypeProvider>()
         .post('/orgs', {
             schema: {
+                summary: 'Create an Org',
+                tags: ['orgs'],
                 body: z.object({
                     charge: z.string(),
                     email: z.string().email(),

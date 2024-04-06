@@ -1,0 +1,17 @@
+version: '2.0'
+
+services:
+  postgres:
+    image: bitnami/postgresql
+    container_name: find-a-friend
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    volumes:
+      - 'db:/var/lib/postgresql/data'
+    environment:
+      - POSTGRESQL_DATABASE=${POSTGRES_DATABASE}
+      - POSTGRESQL_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRESQL_USERNAME=${POSTGRES_USERNAME}
+
+volumes:
+  db:

@@ -17,7 +17,7 @@
 
 <h4>Functional Requirements</h4>
 
-[] Regiter an ORG
+[X] Regiter an ORG
 [] Login with an ORG
 [] Register a Pet
 [] Register a Pet Photo
@@ -27,22 +27,22 @@
 
 <h4>Business rules</h4>
 
-[] Can't register a Org with empty fields
+[X] Can't register a Org with empty fields
 [] Can't register a Pet with empty fields
-[] Register a Org with Email Valid, WhatsApp with DDD and Cep with character especial -
-[] Can't register a Org with same Cep and email
+[X] Register a Org with Email Valid, WhatsApp with DDD and Cep with character especial -
+[X] Can't register a Org with same Cep and email
 [] Can't authenticate a Org with invalid fields
 
 <h4>Non-Functional Requirements</h4>
 
 [] Authentication with JWT Token
-[] Cryptography with bcrypt
-[] Data must be persisted in postgresql using container docker
-[] Identify Users and Pets with a UUID
+[X] Cryptography with bcrypt
+[X] Data must be persisted in postgresql using container docker
+[X] Identify Users with a UUID
 
 <h3>Entities</h3>
 
-[] Orgs
+[X] Orgs
     - Id
     - Charge
     - Email - unique
@@ -52,7 +52,7 @@
     - Password
     - CreatedAt
 
-[] Pets
+[X] Pets
     - Id
     - Name
     - About
@@ -64,13 +64,13 @@
     - OrgId
     - CreatedAt
 
-[] Photos 
+[X] Photos 
     - Id
     - Photo
     - PetId
     - CreatedAt
 
-[] AdoptionRequirements
+[X] AdoptionRequirements
     - Id
     - Requirement
     - PetId

@@ -7,10 +7,15 @@ export async function registerPets(app: FastifyInstance){
 
     app
         .withTypeProvider<ZodTypeProvider>()
-        .post('/pets/:orgsId', {
+        .post('/pets', {
             schema: {
                 summary: 'Create a Pets',
                 tags: ['pets'],
+                security: [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
                 body: z.object({
                     about: z.string(),
                     age: z.number(),
@@ -20,9 +25,6 @@ export async function registerPets(app: FastifyInstance){
                     name: z.string(),
                     size: z.string(),
                     requirements: z.array(z.string())
-                }),
-                params: z.object({
-                    orgsId: z.string().uuid()
                 }),
                 response: {
                     201: z.object({
@@ -36,10 +38,12 @@ export async function registerPets(app: FastifyInstance){
                         name: z.string(),
                         size: z.string(),
                         requirements: z.array(z.string())
-                    })
-                }
-            }
+                    }),
+                },
+            },
         }, async (request, reply) => {
+            await request.jwtVerify()
+
             const {
                 about,
                 age,
@@ -51,7 +55,7 @@ export async function registerPets(app: FastifyInstance){
                 requirements
             } = request.body
 
-            const { orgsId } = request.params
+            const { sub } = request.user
 
             const createPetsService = createPet()
 
@@ -62,8 +66,8 @@ export async function registerPets(app: FastifyInstance){
                 energy,
                 independence,
                 name,
-                orgsId,
-                size
+                size,
+                orgsId: sub
             }, requirements)
 
             reply.status(201).send({

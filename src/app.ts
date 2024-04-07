@@ -18,20 +18,33 @@ app.register(fastifyJwt, {
 })
 
 app.register(fastifySwagger, {
+    openapi: {
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                    type: 'http',
+                    scheme: 'bearer',
+                    bearerFormat: 'JWT'
+                }
+            }
+        }
+    },
     swagger: {
         produces: ['application/json', 'multipart/form-data'],
         consumes: ['application/json', 'multipart/form-data'],
         info: {
             title: 'Find A Friend',
             description: 'An API to adopt Pets',
-            version: '1.0'
+            version: '1.0',
         }
     },
-    transform: jsonSchemaTransform
+
+    transform: jsonSchemaTransform,
 })
 
 app.register(fastifySwaggerUI, {
-    prefix: '/docs'
+    prefix: '/docs',
+    
 })
 
 

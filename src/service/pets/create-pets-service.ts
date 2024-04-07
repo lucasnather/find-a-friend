@@ -22,10 +22,8 @@ export class CreatePetsService {
         private petsRepository: IPets
     ) {}
 
-    async handle(data: CreatePetsRequest,requirements: string[]): Promise<CreatePetsResponse> {
-        const pet = await this.petsRepository.create(
-            data, requirements
-        )
+    async handle(data: CreatePetsRequest,  requirements: string[]): Promise<CreatePetsResponse> {
+        const pet = await this.petsRepository.create(data, requirements)
 
         return {
             pet

@@ -3,7 +3,7 @@ import { IOrgs } from "../interface/i-orgs";
 import { prisma } from "../lib/prisma";
 
 export class OrgsRepository implements IOrgs {
-
+    
     async create(data: Prisma.OrgsCreateInput) {
         const orgs = await prisma.orgs.create({
             data: {
@@ -15,10 +15,10 @@ export class OrgsRepository implements IOrgs {
                 password: data.password,
             }
         })
-
+        
         return orgs
     }
-
+    
     async findByCepAndEmail(cep: string, email: string) {
         const orgs = await prisma.orgs.findUnique({
             where: {
@@ -28,12 +28,25 @@ export class OrgsRepository implements IOrgs {
                 }
             }
         })
+        
+        const isOrgNotExist = !orgs
+        
+        if(isOrgNotExist)  return null
+        
+        return orgs
+    }
+    
+    async findByEmail(email: string) {
+        const orgs = await prisma.orgs.findFirst({
+            where: {
+                email
+            }
+        })
 
         const isOrgNotExist = !orgs
 
-        if(isOrgNotExist)  return null
+        if(isOrgNotExist) return null
 
         return orgs
     }
-
 }

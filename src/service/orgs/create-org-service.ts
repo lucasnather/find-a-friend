@@ -25,8 +25,6 @@ export class CreateOrgService {
 
         if(doesOrgExist) throw new Error("Org Already Exist")
 
-       
-
         const org = await this.orgsRepository.create(data)
 
         return {

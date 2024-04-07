@@ -8,10 +8,15 @@
 
 <h3>Technologies</h3>
 
-<img alt="NodeJs" src="./assets/node-js.png" style="width:50px;">
-<img alt="Docker" src="./assets/docker.png" style="width:50px;">
-<img alt="Postgresql" src="./assets/postgre.png" style="width:50px;">
-<img alt="Typescript" src="./assets/typescript.png" style="width:50px;">
+<div style="display: flex; gap: 10px;">
+    <img alt="NodeJs" src="./assets/node-js.png" style="width:50px;">
+    <img alt="Fastify" src="./assets/fastify.svg" style="width:50px;">
+    <img alt="Typescript" src="./assets/typescript.png" style="width:50px;">
+    <img alt="Postgresql" src="./assets/postgre.png" style="width:50px;">
+    <img alt="Prisma orm" src="./assets/icons8-prisma-orm.svg" style="width:50px;">
+    <img alt="Docker" src="./assets/docker.png" style="width:50px;">
+    <img alt="Swagger" src="./assets/swagger.svg" style="width:50px;">
+</div>
 
 <h3>App Functionalities</h3>
 
@@ -20,10 +25,10 @@
 [X] Regiter an ORG
 [X] Login with an ORG
 [X] Register a Pet
-[] Register a Pet Photo
 [] Search Pets from City and Length
 [] Filter Pets from age, energy, independence, size, and cat or dog
 [] Find A pet from Id
+[] Register a Pet Photo
 
 <h4>Business rules</h4>
 
@@ -32,6 +37,8 @@
 [X] Register a Org with Email Valid, WhatsApp with DDD and Cep with character especial -
 [X] Can't register a Org with same Cep and email
 [X] Can't authenticate a Org with invalid fields
+[] Find a pet required by City
+[] Others Filters are optionals
 
 <h4>Non-Functional Requirements</h4>
 

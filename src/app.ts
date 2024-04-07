@@ -7,6 +7,7 @@ import { jsonSchemaTransform, serializerCompiler, validatorCompiler,  } from 'fa
 import { errorHandler } from "./error-handler";
 import { env } from "./env/env";
 import { authenticateOrg } from "./controller/orgs/authenticate-org";
+import { registerPets } from "./controller/pets/register-pets";
 
 
 export const app = fastify()
@@ -40,3 +41,4 @@ app.setErrorHandler(errorHandler)
 
 app.register(registerOrg)
 app.register(authenticateOrg)
+app.register(registerPets)

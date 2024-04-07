@@ -23,6 +23,7 @@ export async function registerOrg(app: FastifyInstance) {
                 }),
                 response: {
                     201: z.object({
+                        id: z.string().uuid(),
                         charge: z.string(),
                         email: z.string(),
                         cep: z.string(),
@@ -40,9 +41,9 @@ export async function registerOrg(app: FastifyInstance) {
 
             const hashPassword = await passwordHash.hashPassword(password)
 
-            const createOrg = CreateOrg()
+            const createOrgService = CreateOrg()
 
-            const { org } = await createOrg.handle({
+            const { org } = await createOrgService.handle({
                 address,
                 cep,
                 charge,
@@ -52,6 +53,7 @@ export async function registerOrg(app: FastifyInstance) {
             })
 
             return reply.status(201).send({
+                id: org.id,
                 charge: org.address,
                 email: org.email,
                 cep: org.cep,

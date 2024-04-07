@@ -18,8 +18,8 @@
 <h4>Functional Requirements</h4>
 
 [X] Regiter an ORG
-[] Login with an ORG
-[] Register a Pet
+[X] Login with an ORG
+[X] Register a Pet
 [] Register a Pet Photo
 [] Search Pets from City and Length
 [] Filter Pets from age, energy, independence, size, and cat or dog
@@ -28,14 +28,14 @@
 <h4>Business rules</h4>
 
 [X] Can't register a Org with empty fields
-[] Can't register a Pet with empty fields
+[x] Can't register a Pet with empty fields
 [X] Register a Org with Email Valid, WhatsApp with DDD and Cep with character especial -
 [X] Can't register a Org with same Cep and email
-[] Can't authenticate a Org with invalid fields
+[X] Can't authenticate a Org with invalid fields
 
 <h4>Non-Functional Requirements</h4>
 
-[] Authentication with JWT Token
+[X] Authentication with JWT Token
 [X] Cryptography with bcrypt
 [X] Data must be persisted in postgresql using container docker
 [X] Identify Users with a UUID

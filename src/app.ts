@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import fastifyMulter from "fastify-multer";
 import fastifyJwt from "@fastify/jwt";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUI from "@fastify/swagger-ui";
@@ -8,6 +9,7 @@ import { errorHandler } from "./error-handler";
 import { env } from "./env/env";
 import { authenticateOrg } from "./controller/orgs/authenticate-org";
 import { registerPets } from "./controller/pets/register-pets";
+import { registerPhoto } from "./controller/photos/register-photo";
 
 
 export const app = fastify()
@@ -47,6 +49,8 @@ app.register(fastifySwaggerUI, {
     
 })
 
+app.register(fastifyMulter.contentParser)
+
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
@@ -55,3 +59,4 @@ app.setErrorHandler(errorHandler)
 app.register(registerOrg)
 app.register(authenticateOrg)
 app.register(registerPets)
+app.register(registerPhoto)

@@ -10,6 +10,7 @@ import { env } from "./env/env";
 import { authenticateOrg } from "./controller/orgs/authenticate-org";
 import { registerPets } from "./controller/pets/register-pets";
 import { registerPhoto } from "./controller/photos/register-photo";
+import { findPetsById } from "./controller/pets/find-pets-by-id";
 
 
 export const app = fastify()
@@ -60,3 +61,4 @@ app.register(registerOrg)
 app.register(authenticateOrg)
 app.register(registerPets)
 app.register(registerPhoto)
+app.register(findPetsById)

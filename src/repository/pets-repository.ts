@@ -3,7 +3,7 @@ import { IPets } from "../interface/i-pets";
 import { prisma } from "../lib/prisma";
 
 export class PetsRepository implements IPets {
-
+    
     async create(data: Prisma.PetsUncheckedCreateInput, requirements: string[]) {
         const pets = await prisma.pets.create({
             data: {
@@ -26,8 +26,34 @@ export class PetsRepository implements IPets {
                 }
             }
         })
-
+        
         return pets
     }
 
+    async findById(id: number) {
+        const pets = await prisma.pets.findUnique({
+            where: {
+                id
+            },
+            include: {
+                AdoptionRequirements: {
+                    select: {
+                        id: true,
+                        requirement: true
+                    }
+                },
+                Photos: {
+                    select: {
+                        id: true,
+                        photo: true
+                    }
+                }
+            }
+        })
+
+        if(!pets) return null
+
+        return pets
+    }
+    
 }

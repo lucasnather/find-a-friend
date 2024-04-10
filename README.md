@@ -25,10 +25,10 @@
 [X] Regiter an ORG
 [X] Login with an ORG
 [X] Register a Pet
+[X] Register a Pet Photo
+[X] Find A pet from Id
 [] Search Pets from City and Length
 [] Filter Pets from age, energy, independence, size, and cat or dog
-[] Find A pet from Id
-[] Register a Pet Photo
 
 <h4>Business rules</h4>
 

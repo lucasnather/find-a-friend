@@ -12,9 +12,22 @@ import { registerPets } from "./controller/pets/register-pets";
 import { registerPhoto } from "./controller/photos/register-photo";
 import { findPetsById } from "./controller/pets/find-pets-by-id";
 import { findPetsByCharacteristics } from "./controller/pets/find-pets-by-characteristics";
+import fastifyCors from "@fastify/cors";
+import fastifyStatic from "@fastify/static";
+import path from "node:path";
 
 
 export const app = fastify()
+
+app.register(fastifyCors, {
+    origin: '*',
+    methods: ['GET', 'POST']
+})
+
+app.register(fastifyStatic, {
+    root: path.join(__dirname, '../', 'storage', 'uploads'),
+    prefix: '/uploads/'
+})
 
 app.register(fastifyJwt, {
     secret: env.JWT_SECRET,

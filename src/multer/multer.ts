@@ -1,4 +1,5 @@
 import multer from "fastify-multer"
+import { randomBytes } from "node:crypto"
 
 export const upload = multer({
 	dest: 'storage/uploads',
@@ -19,13 +20,19 @@ export const upload = multer({
     limits: {
 		fileSize: 10 * 1024 * 1024
 	},
-    storage: multer.diskStorage({
-        destination: function (req, file, cb) {
-          cb(null, 'storage/uploads')
-        },
-        filename: function (req, file, cb) {
-          cb(null, file.originalname + '-' + Date.now())
-        }
-    })
+	storage: multer.diskStorage({
+		destination: (_, file, cb) => {
+			cb(null, 'storage/uploads')
+		},
+		filename: (_, file, cb) => {
+			randomBytes(16, (err, hash) => {
+				if (err) cb(err)
+
+				const filename = `${file.originalname}`
+
+				cb(null, filename)
+			})
+		}
+	})
 })
   

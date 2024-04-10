@@ -10,6 +10,8 @@ export class OrgsRepository implements IOrgs {
                 charge: data.charge,
                 email: data.email,
                 cep: data.cep,
+                city: data.city,
+                uf: data.uf,
                 address: data.address,
                 whatsapp: data.whatsapp,
                 password: data.password,

@@ -5,6 +5,8 @@ interface CreateOrgRequest {
     charge: string
     email: string
     cep: string
+    city?: string
+    uf?: string
     address: string
     whatsapp: string
     password: string

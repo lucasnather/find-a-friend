@@ -3,6 +3,7 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import z from "zod";
 import { PasswordHash } from "../../utils/password-hash";
 import { CreateOrg } from "../../factory/orgs/create-org";
+import { ViaCep } from "../../api/viacep";
 
 
 export async function registerOrg(app: FastifyInstance) {
@@ -27,6 +28,8 @@ export async function registerOrg(app: FastifyInstance) {
                         charge: z.string(),
                         email: z.string(),
                         cep: z.string(),
+                        city: z.string(),
+                        uf: z.string(),
                         address: z.string(),
                         whatsapp: z.string(),
                         password: z.string(),
@@ -38,14 +41,18 @@ export async function registerOrg(app: FastifyInstance) {
             const { address, cep, charge, email, password, whatsapp  } = request.body
 
             const passwordHash = new PasswordHash()
-
             const hashPassword = await passwordHash.hashPassword(password)
+
+            const viaCep = new ViaCep(cep)
+            const { localidade, uf } = await viaCep.consumeApiViaCep()
 
             const createOrgService = CreateOrg()
 
             const { org } = await createOrgService.handle({
                 address,
                 cep,
+                city: localidade,
+                uf: uf,
                 charge,
                 email,
                 password: hashPassword,
@@ -57,6 +64,8 @@ export async function registerOrg(app: FastifyInstance) {
                 charge: org.address,
                 email: org.email,
                 cep: org.cep,
+                city: org.city || '',
+                uf: org.uf || '',
                 address: org.address,
                 whatsapp: org.whatsapp,
                 password: org.password,

@@ -27,7 +27,7 @@
 [X] Register a Pet
 [X] Register a Pet Photo
 [X] Find A pet from Id
-[] Search Pets from City and Length
+[X] Filter Pets from City
 [] Filter Pets from age, energy, independence, size, and cat or dog
 
 <h4>Business rules</h4>
@@ -37,8 +37,8 @@
 [X] Register a Org with Email Valid, WhatsApp with DDD and Cep with character especial -
 [X] Can't register a Org with same Cep and email
 [X] Can't authenticate a Org with invalid fields
-[] Find a pet required by City
-[] Others Filters are optionals
+[X] Find a pet required by City
+[X] Others Filters are optionals
 
 <h4>Non-Functional Requirements</h4>
 

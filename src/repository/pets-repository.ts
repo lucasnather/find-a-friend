@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import { IPets } from "../interface/i-pets";
+import { CharacteristicsProps, IPets } from "../interface/i-pets";
 import { prisma } from "../lib/prisma";
 
 export class PetsRepository implements IPets {
@@ -47,6 +47,15 @@ export class PetsRepository implements IPets {
                         id: true,
                         photo: true
                     }
+                },
+                org: {
+                    select: {
+                        cep: true,
+                        city: true,
+                        uf: true,
+                        address: true,
+                        whatsapp: true
+                    }
                 }
             }
         })
@@ -55,5 +64,62 @@ export class PetsRepository implements IPets {
 
         return pets
     }
+
+    async findByCharacteristic(characteristics: CharacteristicsProps) {
+        const pets = await prisma.pets.findMany({
+            where: {
+                AND: [
+                    {   
+                        org: {
+                            city: characteristics.city
+                        }
+                    },
+                    {
+                        age: characteristics.age,
+                        
+                    },
+                    {
+                        ambience: characteristics.ambience,
+
+                    },
+                    {
+                        energy: characteristics.energy,                    
+                    },
+                    {
+                        independence: characteristics.independence,
+                    },
+                    {
+                        size: characteristics.size,
+                    }
+                ]
+            },
+            include: {
+                AdoptionRequirements: {
+                    select: {
+                        id: true,
+                        requirement: true
+                    }
+                },
+                Photos: {
+                    select: {
+                        id: true,
+                        photo: true
+                    }
+                },
+                org: {
+                    select: {
+                        cep: true,
+                        city: true
+                    }
+                }
+            },
+            
+        })
+
+        if(!pets) return null
+
+        return pets
+    }
+    
     
 }

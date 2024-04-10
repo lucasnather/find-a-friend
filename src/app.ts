@@ -11,6 +11,7 @@ import { authenticateOrg } from "./controller/orgs/authenticate-org";
 import { registerPets } from "./controller/pets/register-pets";
 import { registerPhoto } from "./controller/photos/register-photo";
 import { findPetsById } from "./controller/pets/find-pets-by-id";
+import { findPetsByCharacteristics } from "./controller/pets/find-pets-by-characteristics";
 
 
 export const app = fastify()
@@ -62,3 +63,4 @@ app.register(authenticateOrg)
 app.register(registerPets)
 app.register(registerPhoto)
 app.register(findPetsById)
+app.register(findPetsByCharacteristics)

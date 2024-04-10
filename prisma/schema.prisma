@@ -18,6 +18,8 @@ model Orgs {
   charge    String
   email     String
   cep       String
+  city      String?
+  uf        String?
   address   String
   whatsapp  String
   password  String

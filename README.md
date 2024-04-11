@@ -83,3 +83,32 @@
     - PetId
     - CreatedAt
 
+# Clone este repositório
+$ git clone <https://github.com/lucasnather/find-a-friend.git>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd find-a-friend
+
+# Instale as dependências 
+$ npm install
+
+# Subir o container do Docker com banco de dados postgres
+$ docker compose up -d
+
+
+# Crie as variáveis de ambiente, um arquivo .env na raiz do projeto.
+$ Veja o exemplo no arquivo ./env.example
+
+# Gere o client do Prisma 
+$ npx prisma generate
+
+
+# Execute as Migrations
+$ npx prisma migrate dev
+
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev
+
+# O servidor inicicará na porta:8080 - acesse <http://localhost:8080>
+# Veja a documentação da api em <http://localhost:8080/docs>

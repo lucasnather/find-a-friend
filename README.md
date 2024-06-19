@@ -4,7 +4,7 @@
 
 <h2>About Project</h2>
 
-<p>The Find A Friend Back-End is an API to register your ORG and the Pets that you want to put up to adoption, and with facilites the adopters can navigate to application and send messages to the orgs to adopt Pets</p>
+<p>The Find A Friend Back-End is an API to register your ORG and the Pets that you want to put up to adoption and with facilites the adopters can navigate to application and send messages to the orgs to adopt Pets</p>
 
 <h3>Technologies</h3>
 
@@ -28,7 +28,7 @@
 [X] Register a Pet Photo
 [X] Find A pet from Id
 [X] Filter Pets from City
-[] Filter Pets from age, energy, independence, size, and cat or dog
+[X] Filter Pets from age, energy, independence, size, and cat or dog
 
 <h4>Business rules</h4>
 
@@ -83,32 +83,40 @@
     - PetId
     - CreatedAt
 
-# Clone este repositório
-$ git clone <https://github.com/lucasnather/find-a-friend.git>
+# Clone this repository
 
-# Acesse a pasta do projeto no terminal/cmd
+```bash
+
+$ git clone https://github.com/lucasnather/find-a-friend.git
+
 $ cd find-a-friend
 
-# Instale as dependências 
 $ npm install
 
-# Subir o container do Docker com banco de dados postgres
-$ docker compose up -d
+```
 
+# Environment Variables -> Create .env file in the root of project -> open the .env.example. 
 
-# Crie as variáveis de ambiente, um arquivo .env na raiz do projeto.
-$ Veja o exemplo no arquivo ./env.example
+# Setup Database and Docker
 
-# Gere o client do Prisma 
+```bash
+
+# make you sure to open Docker
+$ docker-compose up -d
+
 $ npx prisma generate
 
-
-# Execute as Migrations
 $ npx prisma migrate dev
 
+```
 
-# Execute a aplicação em modo de desenvolvimento
+# Running Server
+
+```bash
+
 $ npm run dev
 
-# O servidor inicicará na porta:8080 - acesse <http://localhost:8080>
-# Veja a documentação da api em <http://localhost:8080/docs>
+```
+
+# Server listen at -> <http://localhost:8080>
+# Api Docs -> <http://localhost:8080/docs>
